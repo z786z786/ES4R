@@ -75,10 +75,7 @@
 
   <!-- TODO: Replace with your paper title and authors -->
   <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  <link rel="icon" href="data:,">
   
   <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -170,7 +167,6 @@
     "@type": "Organization",
     "name": "INSTITUTION_OR_LAB_NAME",
     "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
     "sameAs": [
       "https://twitter.com/YOUR_TWITTER_HANDLE",
       "https://github.com/YOUR_GITHUB_USERNAME"
@@ -187,52 +183,6 @@
   </button>
 
   <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
 
   <main id="main-content">
   <section class="hero">
@@ -241,52 +191,41 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <!-- <h1 class="title is-1 publication-title">ES4R: Speech Encoding Based on Prepositive Affective Modeling for Empathetic Response Generation</h1> -->
+            <!-- <h1 class="title is-1 publication-title">ES4R: <br> Speech Encoding Based on Prepositive Affective Modeling for Empathetic Response Generation</h1> -->
+            <!-- <h1 class="title is-1 publication-title"><strong>ES4R:</strong><br><span style="font-weight:normal;">Speech Encoding Based on Prepositive Affective Modeling for Empathetic Response Generation</span></h1> -->
+            <h1 class="title is-1 publication-title"><strong>ES4R:</strong><br><span style="font-weight:normal; font-size:0.75em;">Speech Encoding Based on Prepositive Affective Modeling for Empathetic Response Generation</span></h1>
             <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
+                <a href="#" target="_blank">Zhuoyue Gao</a>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Xiaohui Wang</a>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Xiaocui Yang</a>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Wen Zhang</a>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Daling Wang</a><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Shi Feng</a>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Yifei Zhang</a></span>
+            </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                School of Computer Science and Engineering, Northeastern University, Shenyang 110819, China<br>
+                <span style="color: red;">Annual Meeting of the Association for Computational Linguistics (ACL) 2026</span>
+              </span>
+              <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding Author</small></span>
+            </div>
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
 
                   <!-- TODO: Replace with your GitHub repository URL -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://github.com/Bean0901/ES4R" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -297,7 +236,7 @@
 
                 <!-- TODO: Update with your arXiv paper ID -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  <a href="https://arxiv.org/abs/2601.16225" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
@@ -313,25 +252,6 @@
   </div>
 </section>
 
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
@@ -341,7 +261,7 @@
         <div class="content has-text-justified">
           <!-- TODO: Replace with your paper abstract -->
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Empathetic speech dialogue requires not only understanding linguistic content but also perceiving rich paralinguistic information such as prosody, tone, and emotional intensity for affective understandings. Existing speech-tospeech large language models either rely on ASR transcription or use encoders to extract latent representations, often weakening affective information and contextual coherence in multiturn dialogues. To address this, we propose ES4R, a framework for speech-based empathetic response generation. Our core innovation lies in explicitly modeling structured affective context before speech encoding, rather than relying on implicit learning by the encoder or explicit emotion supervision. Specifically, we introduce a dual-level attention mechanism to capture turn-level affective states and dialogue-level affective dynamics. The resulting affective representations are then integrated with textual semantics through speechguided cross-modal attention to generate empathetic responses. For speech output, we employ energy-based strategy selection and style fusion to achieve empathetic speech synthesis. ES4R consistently outperforms strong baselines in both automatic and human evaluations and remains robust across different Large Language Model (LLM) backbones.
           </p>
         </div>
       </div>
@@ -350,128 +270,223 @@
 </section>
 <!-- End paper abstract -->
 
+<!-- Teaser image-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3 has-text-centered">Architecture</h2>
+      <img src="static/images/Architecture.jpg" alt="ES4R Architecture" style="width:100%; border-radius:8px;"/>
+      <!-- <h2 class="subtitle has-text-centered"> -->
+        The overall framework of ES4R. Stage 1: Intra-Turn and Inter-Turn attention are used to prepositive affective modeling. Stage 2: Speech-guided cross-modal fusion is used for empathetic response generation. Stage 3: Energy-based strategy selection and style fusion are applied for speech synthesis.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser image -->
+
+
 
 <!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
+  <h2 class="title is-3 has-text-centered">Analyses</h2>
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
+
+        <div class="item" style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:100%; height:500px; display:flex; align-items:center; justify-content:center; background:#fff;">
+            <img src="static/images/figure1.png" alt="" loading="lazy" style="width:800px; height:auto;"/>
+          </div>
+          <h2 class="subtitle"><strong>Representation analysis</strong> of turn-level cosine similarity. The left and middle heatmaps show that ES4R's <strong>Dual-Attn module</strong> produces clearer <strong>intra-dialogue structure</strong> compared to the uniform Whisper baseline. The right panel quantitatively shows that ES4R improves the <strong>dialogue cohesion ratio from 1.00× to 1.08×</strong>, validating the effectiveness of <strong>prepositive affective modeling</strong>.</h2>
+        </div>
+
+        <div class="item" style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:100%; height:500px; display:flex; align-items:center; justify-content:center; background:#fff;">
+            <img src="static/images/table1.png" alt="" loading="lazy" style="width:900px; height:auto;"/>
+          </div>
+          <h2 class="subtitle"><strong>Automatic evaluation results</strong> on the <strong>AvaMERG dataset</strong>. <strong>ES4R(Qwen)</strong> and <strong>ES4R(llama)</strong> achieve the best or second-best performance across <strong>BLEU, ROUGE, and BERTScore</strong> metrics compared to all baselines. <strong>Bold</strong> indicates the best performance and <u>underline</u> indicates the second-best performance. <strong>w/o Dual-Attn</strong> and <strong>w/o Cross-Attn</strong> denote ablation variants removing the dual-level attention module and speech-guided cross-modal fusion module, respectively.</h2>
+        </div>
+
+        <div class="item" style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:100%; height:500px; display:flex; align-items:center; justify-content:center; background:#fff;">
+            <img src="static/images/table2.png" alt="" loading="lazy" style="width:500px; height:auto;"/>
+          </div>
+          <h2 class="subtitle"><strong>Human evaluation results</strong> (A/B testing) on <strong>text</strong> responses comparing ES4R with baselines and ablation variants across five aspects: <strong>Topic Understanding</strong>, <strong>Emotion Recognition</strong>, <strong>Response Specificity</strong>, <strong>Actionable Advice</strong>, and <strong>Empathy Depth</strong>. ES4R achieves consistently higher <strong>Win rates</strong> across all dimensions and all comparisons.</h2>
+        </div>
+
+        <div class="item" style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:100%; height:500px; display:flex; align-items:center; justify-content:center; background:#fff;">
+            <img src="static/images/table3.png" alt="" loading="lazy" style="width:500px; height:auto;"/>
+          </div>
+          <h2 class="subtitle"><strong>Human evaluation</strong> results on dialogue-level <strong>speech</strong> responses using <strong>DMOS metrics</strong>. ES4R demonstrates superior performance in <strong>Empathy Expressiveness (DMOS-E)</strong> and <strong>Emotional Consistency (DMOS-C)</strong> compared to OpenS2S and LLaMA-Omni 2, while achieving competitive <strong>Speech Quality (DMOS-Q)</strong>.</h2>
+        </div>
+
+        <div class="item" style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:100%; height:500px; display:flex; align-items:center; justify-content:center; background:#fff;">
+            <img src="static/images/table4.png" alt="" loading="lazy" style="width:400px; height:auto;"/>
+          </div>
+          <h2 class="subtitle"><strong>LLM-based evaluation result</strong>s using <strong>GPT-5</strong> across four dimensions: <strong>Quality</strong>, <strong>Empathy</strong>, <strong>Completeness</strong>, and <strong>Fluency</strong> (scored 0–10). ES4R consistently outperforms all baselines and ablation variants, demonstrating the effectiveness of <strong>prepositive affective modeling</strong> and <strong>cross-modal fusion</strong>.</h2>
+        </div>
+
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
     </div>
   </div>
-</div>
-</div>
 </section>
 <!-- End image carousel -->
 
 
+<!-- Demo Examples -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Demo Examples</h2>
 
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
+    <!-- Example 1 -->
+    <div style="margin-bottom:3rem; border:1px solid #ddd; border-radius:12px; overflow:hidden;">
+      <div style="background:#f0f4ff; padding:12px 20px; font-weight:bold; font-size:1.1em;">
+        Example 1
       </div>
+      <table style="width:100%; border-collapse:collapse; font-size:0.95em;">
+        <thead>
+          <tr style="background:#e8edf5; text-align:left;">
+            <th style="padding:10px 16px; width:6%;">Turn</th>
+            <th style="padding:10px 16px; width:18%;">Audio Input</th>
+            <th style="padding:10px 16px; width:30%;">Transcript</th>
+            <th style="padding:10px 16px; width:16%;">Audio Output</th>
+            <th style="padding:10px 16px; width:30%;">Text Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid #eee;">
+            <td style="padding:10px 16px;">T1</td>
+            <td style="padding:10px 16px;"><audio controls style="width:100%;"><source src="static\audio\dia20001utt0_52.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px;">I've been struggling to balance work and family responsibilities, and it's really taking a toll on me.</td>
+            <td style="padding:10px 16px;"><audio controls style="width:100%;"><source src="static\audio\dia20001utt1_54.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px; color:#aaa;">That sounds really tough. It must be exhausting trying to manage everything at once.</td>
+          </tr>
+          <!-- <tr style="border-top:1px solid #eee; background:#fafafa;">
+            <td style="padding:10px 16px;"><strong>T2</strong><br><span style="font-size:0.8em; color:#2563eb;">Response</span></td>
+            <td style="padding:10px 16px;"><audio controls style="width:100%;"><source src="static/audios/ex1_t2.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px;">Yes, it feels like I'm constantly running on empty and never getting a break.</td>
+            <td style="padding:10px 16px;"><audio controls style="width:100%;"><source src="static/audios/ex1_t3_output.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px; color:#aaa;">I can imagine how that feels. It's important to take care of yourself and prioritize your well-being, even if it means saying no to some things or asking for help when you need it.</td>
+          </tr> -->
+          <tr style="border-top:2px solid #2563eb; background:#f0f4ff;">
+            <td style="padding:10px 16px;"><strong>T2</strong><br><span style="font-size:0.8em; color:#2563eb;">Response</span></td>
+            <td style="padding:10px 16px;"><audio controls style="width:100%;"><source src="static\audio\dia20001utt2_52.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px;">Yes, it feels like I'm constantly running on empty and never getting a break.</td>
+            <td style="padding:10px 16px;"><audio controls style="width:100%;"><source src="static\audio\audio1.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px;">I can imagine how that feels. It's important to take care of yourself and prioritize your well-being, even if it means saying no to some things or asking for help when you need it.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+    <!-- Example 2 (复制上面的块修改内容) -->
+    <div style="margin-bottom:3rem; border:1px solid #ddd; border-radius:12px; overflow:hidden;">
+      <div style="background:#f0f4ff; padding:12px 20px; font-weight:bold; font-size:1.1em;">
+        Example 2 
+      </div>
+      <table style="width:100%; border-collapse:collapse; font-size:0.95em;">
+        <thead>
+          <tr style="background:#e8edf5; text-align:left;">
+            <th style="padding:10px 16px; width:6%;">Turn</th>
+            <th style="padding:10px 16px; width:18%;">Audio Input</th>
+            <th style="padding:10px 16px; width:30%;">Transcript</th>
+            <th style="padding:10px 16px; width:16%;">Audio Output</th>
+            <th style="padding:10px 16px; width:30%;">Text Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid #eee;">
+            <td style="padding:10px 16px;">T1</td>
+            <td style="padding:10px 16px;"><audio controls style="width:100%;"><source src="static\audio\dia20002utt0_51.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px;">I just can't shake off this feeling of being stuck in my life. It's like every day is the same and I can't see a way out.</td>
+            <td style="padding:10px 16px;"><audio controls style="width:100%;"><source src="static\audio\dia20002utt1_54.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px; color:#aaa;">It sounds really tough to feel that way. It's understandable to feel overwhelmed when life feels repetitive.</td>
+          </tr>
+          <tr style="border-top:1px solid #eee; background:#fafafa;">
+            <td style="padding:10px 16px;">T2</td>
+            <td style="padding:10px 16px;"><audio controls style="width:100%;"><source src="static\audio\dia20002utt2_51.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px;">Sometimes, I wonder if I’m just not trying hard enough to change things.</td>
+            <td style="padding:10px 16px;"><audio controls style="width:100%;"><source src="static\audio\dia20002utt3_54.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px; color:#aaa;">It's common to feel that way, but it doesn’t mean you’re not trying. Change can be slow and requires patience.</td>
+          </tr>
+          <tr style="border-top:2px solid #2563eb; background:#f0f4ff;">
+            <td style="padding:10px 16px;"><strong>T3</strong><br><span style="font-size:0.8em; color:#2563eb;">Response</span></td>
+            <td style="padding:10px 16px;"><audio controls style="width:100%;"><source src="static\audio\dia20002utt4_51.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px;">I guess I just need to remind myself that small steps can lead to progress.</td>
+            <td style="padding:10px 16px;"><audio controls style="width:100%;"><source src="static\audio\audio2.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px;">That's a great reminder. Sometimes it can be hard to see progress when things feel slow, but every small step counts towards making changes.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Example 3 (复制上面的块修改内容) -->
+    <div style="margin-bottom:3rem; border:1px solid #ddd; border-radius:12px; overflow:hidden;">
+      <div style="background:#f0f4ff; padding:12px 20px; font-weight:bold; font-size:1.1em;">
+        Example 3
+      </div>
+      <table style="width:100%; border-collapse:collapse; font-size:0.95em;">
+        <thead>
+          <tr style="background:#e8edf5; text-align:left;">
+            <th style="padding:10px 16px; width:6%;">Turn</th>
+            <th style="padding:10px 16px; width:18%;">Audio Input</th>
+            <th style="padding:10px 16px; width:30%;">Transcript</th>
+            <th style="padding:10px 16px; width:16%;">Audio Output</th>
+            <th style="padding:10px 16px; width:30%;">Text Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid #eee;">
+            <td style="padding:10px 16px;">T1</td>
+            <td style="padding:10px 16px;"><audio controls preload="metadata" style="width:100%;"><source src="static\audio\dia20004utt0_51.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px;">I'm really struggling to keep up with everything lately.</td>
+            <td style="padding:10px 16px;"><audio controls preload="metadata" style="width:100%;"><source src="static\audio\dia20004utt1_54.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px; color:#aaa;">It sounds like you're carrying a heavy load. Do you want to talk about what's been on your mind?</td>
+          </tr>
+          <tr style="border-top:1px solid #eee; background:#fafafa;">
+            <td style="padding:10px 16px;">T2</td>
+            <td style="padding:10px 16px;"><audio controls preload="metadata" style="width:100%;"><source src="static\audio\dia20004utt2_51.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px;">It's like I can't find a moment to breathe. Work is demanding and my family needs me too.</td>
+            <td style="padding:10px 16px;"><audio controls preload="metadata" style="width:100%;"><source src="static\audio\dia20004utt3_54.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px; color:#aaa;">That sounds exhausting. It's tough when you feel like there's no break in sight.</td>
+          </tr>
+          <tr style="border-top:2px solid #2563eb; background:#f0f4ff;">
+            <td style="padding:10px 16px;"><strong>T3</strong><br><span style="font-size:0.8em; color:#2563eb;">Response</span></td>
+            <td style="padding:10px 16px;"><audio controls preload="metadata" style="width:100%;"><source src="static\audio\dia20004utt4_51.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px;">I just want to feel like I'm managing things instead of feeling lost.</td>
+            <td style="padding:10px 16px;"><audio controls preload="metadata" style="width:100%;"><source src="static\audio\audio3.wav" type="audio/wav"></audio></td>
+            <td style="padding:10px 16px;">I understand how you feel. It can be overwhelming to try and balance everything, but remember that it's okay to ask for help when you need it. Maybe talking to someone about your stress could make a difference.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
   </div>
 </section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
 
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
 
-      <!-- TODO: Replace with your poster PDF -->
+    
       <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
           </iframe>
         
       </div>
     </div>
-  </section>
+  </section> -->
 <!--End paper poster -->
 
 
 
 <!--BibTex citation -->
-  <section class="section" id="BibTeX">
+  <!-- <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <div class="bibtex-header">
         <h2 class="title">BibTeX</h2>
@@ -488,11 +503,11 @@
   url={https://your-domain.com/your-project-page}
 }</code></pre>
     </div>
-</section>
+</section> -->
 <!--End BibTex citation -->
 
 
-  <footer class="footer">
+  <!-- <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
@@ -508,7 +523,7 @@
       </div>
     </div>
   </div>
-</footer>
+</footer> -->
 
 <!-- Statcounter tracking code -->
   
