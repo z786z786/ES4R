@@ -7,7 +7,537 @@
   <!-- Primary Meta Tags -->
   <!-- TODO: Replace with your paper title and author names -->
   <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
+  <!-- TODO: Write a compelling 150-160 character descrip<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ES4R: Speech Encoding Based on Prepositive Affective Modeling for Empathetic Response Generation</title>
+  <meta name="description" content="ES4R: A framework for speech-based empathetic response generation using prepositive affective modeling. Northeastern University." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f7f7f7;
+      --surface2: #efefef;
+      --border: #e2e2e2;
+      --text: #111111;
+      --text-muted: #444444;
+      --text-dim: #888888;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.93);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    nav .inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      padding: 88px 0 72px;
+      border-bottom: 1px solid var(--border);
+    }
+    .venue-badge {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 4px 10px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 4.5vw, 2.9rem);
+      line-height: 1.18;
+      font-weight: 400;
+      color: var(--text);
+      max-width: 780px;
+    }
+    .authors {
+      margin-top: 28px;
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+    .affiliation {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* LINKS */
+    .links-row {
+      margin-top: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      padding: 9px 18px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.15s;
+      border: 1px solid;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--text); color: #fff; border-color: var(--text); }
+    .btn-primary:hover { background: #333; border-color: #333; }
+    .btn-outline { background: transparent; color: var(--text-muted); border-color: var(--border); }
+    .btn-outline:hover { color: var(--text); border-color: #999; }
+    .btn-disabled { background: transparent; color: var(--text-dim); border-color: var(--border); cursor: default; opacity: 0.55; pointer-events: none; }
+
+    /* SECTIONS */
+    section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    p { color: var(--text-muted); margin-bottom: 14px; font-size: 15px; }
+    p:last-child { margin-bottom: 0; }
+    p strong { color: var(--text); font-weight: 600; }
+    p em { font-style: italic; }
+
+    /* ARCHITECTURE */
+    .arch-wrap { margin-top: 40px; }
+    .arch-caption {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .flow { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .stage-box {
+      padding: 26px 24px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .stage-box:last-child { border-bottom: none; }
+    .stage-box:hover { background: var(--surface); }
+    .stage-index {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+    .stage-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+    .stage-body { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+    .sub-components { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+    .sub-comp {
+      flex: 1;
+      min-width: 180px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 12px 14px;
+    }
+    .sub-comp-name { font-weight: 600; color: var(--text); margin-bottom: 5px; font-size: 13px; }
+    .sub-comp-desc { font-size: 12px; color: var(--text-dim); line-height: 1.55; }
+    .stage-tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 2px 8px;
+    }
+    .flow-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 0;
+      color: var(--text-dim);
+      font-size: 20px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .io-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+    }
+
+    /* BIBTEX */
+    .bibtex-box { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-top: 20px; }
+    .bibtex-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .bibtex-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); letter-spacing: 0.08em; }
+    .copy-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 3px 10px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .copy-btn:hover { color: var(--text); border-color: #999; }
+    pre {
+      padding: 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      line-height: 1.85;
+      color: var(--text-muted);
+      overflow-x: auto;
+      background: var(--bg);
+    }
+    pre .kw  { color: #555; }
+    pre .key { color: #222; }
+    pre .val { color: #777; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 36px 0; text-align: center; }
+    .footer-text { font-size: 12px; color: var(--text-dim); line-height: 2; }
+    .footer-text a { color: var(--text-dim); text-decoration: underline; transition: color 0.15s; }
+    .footer-text a:hover { color: var(--text); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .venue-badge { animation: fadeUp 0.4s 0s ease both; }
+    h1           { animation: fadeUp 0.4s 0.07s ease both; }
+    .authors     { animation: fadeUp 0.4s 0.13s ease both; }
+    .affiliation { animation: fadeUp 0.4s 0.17s ease both; }
+    .links-row   { animation: fadeUp 0.4s 0.21s ease both; }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 640px) {
+      .sub-components { flex-direction: column; }
+      .nav-links { gap: 16px; }
+      .io-row { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="inner">
+    <a class="nav-logo" href="#">ES4R</a>
+    <ul class="nav-links">
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#bibtex">BibTeX</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="container">
+  <div class="hero">
+    <div class="venue-badge">Preprint · 2025</div>
+
+    <h1>ES4R: Speech Encoding Based on Prepositive Affective Modeling for Empathetic Response Generation</h1>
+
+    <div class="authors">
+      Zhuoyue Gao,&nbsp;
+      Xiaohui Wang,&nbsp;
+      Xiaocui Yang,&nbsp;
+      Wen Zhang,&nbsp;
+      Daling Wang<sup>*</sup>,&nbsp;
+      Shi Feng,&nbsp;
+      Yifei Zhang
+    </div>
+
+    <div class="affiliation">
+      School of Computer Science and Engineering, Northeastern University, Shenyang 110819, China
+      &nbsp;·&nbsp; <sup>*</sup> Corresponding author
+    </div>
+
+    <div class="links-row">
+      <!--
+        论文链接占位 — 发布后将 href 中的 YOUR_PAPER_URL 替换为实际链接
+        例如: href="https://arxiv.org/abs/2025.XXXXX"
+        同时将 btn-disabled 改为 btn-outline，删除 pointer-events 限制
+      -->
+      <a class="btn btn-disabled" href="YOUR_PAPER_URL" target="_blank">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+        </svg>
+        Paper (coming soon)
+      </a>
+
+      <a class="btn btn-primary" href="https://github.com/Bean0901/ES4R" target="_blank">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/>
+        </svg>
+        Code
+      </a>
+
+      <a class="btn btn-outline" href="#bibtex">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <line x1="7" y1="8" x2="17" y2="8"/>
+          <line x1="7" y1="12" x2="17" y2="12"/>
+          <line x1="7" y1="16" x2="12" y2="16"/>
+        </svg>
+        BibTeX
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ABSTRACT -->
+<div class="container" id="abstract">
+  <section class="reveal">
+    <div class="section-label">Abstract</div>
+    <p>
+      Empathetic speech dialogue requires not only understanding linguistic content but also perceiving rich paralinguistic information — such as prosody, tone, and emotional intensity — for affective understanding. Existing speech-to-speech large language models either rely on ASR transcription or use encoders to extract latent representations, often <strong>weakening affective information</strong> and contextual coherence in multi-turn dialogues.
+    </p>
+    <p>
+      To address this, we propose <strong>ES4R</strong>, a framework for speech-based empathetic response generation. Our core innovation lies in <em>explicitly modeling structured affective context before speech encoding</em>, rather than relying on implicit learning by the encoder or explicit emotion supervision. Specifically, we introduce a <strong>dual-level attention mechanism</strong> to capture turn-level affective states and dialogue-level affective dynamics. The resulting affective representations are then integrated with textual semantics through <strong>speech-guided cross-modal attention</strong> to generate empathetic responses.
+    </p>
+    <p>
+      For speech output, we employ <strong>energy-based strategy selection</strong> and style fusion to achieve empathetic speech synthesis. ES4R consistently outperforms strong baselines in both automatic and human evaluations and remains robust across different LLM backbones.
+    </p>
+  </section>
+</div>
+
+<!-- METHOD -->
+<div class="container" id="method">
+  <section class="reveal">
+    <div class="section-label">Method</div>
+    <h2>Overall Architecture</h2>
+    <p>
+      ES4R is structured as a three-stage pipeline. The key insight is that affective information must be explicitly modeled <em>before</em> the speech encoder compresses raw audio — preventing emotional detail from being lost in latent representations.
+    </p>
+
+    <div class="arch-wrap">
+      <div class="arch-caption">Figure: ES4R Framework Overview</div>
+
+      <div class="flow">
+
+        <!-- Stage 1 -->
+        <div class="stage-box">
+          <div class="stage-index">STAGE 01</div>
+          <div class="stage-title">Empathetic Understanding</div>
+          <div class="stage-body">
+            Before encoding speech, ES4R first constructs a structured affective context from the dialogue history using a <strong>dual-level attention</strong> mechanism.
+          </div>
+          <div class="sub-components">
+            <div class="sub-comp">
+              <div class="sub-comp-name">Intra-Turn Attention</div>
+              <div class="sub-comp-desc">Captures within-turn affective states — how emotion evolves inside a single speaker's utterance.</div>
+            </div>
+            <div class="sub-comp">
+              <div class="sub-comp-name">Inter-Turn Attention</div>
+              <div class="sub-comp-desc">Models cross-turn affective dynamics — how the emotional context shifts across the full dialogue history.</div>
+            </div>
+          </div>
+          <div class="stage-tags">
+            <span class="tag">Prepositive Affective Modeling</span>
+            <span class="tag">Dual-Level Attention</span>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <!-- Stage 2 -->
+        <div class="stage-box">
+          <div class="stage-index">STAGE 02</div>
+          <div class="stage-title">Empathetic Generation</div>
+          <div class="stage-body">
+            The affective representations from Stage 1 are fused with speech and text features to guide an LLM in generating empathetic textual responses.
+          </div>
+          <div class="sub-components">
+            <div class="sub-comp">
+              <div class="sub-comp-name">Speech-Guided Cross-Modal Attention</div>
+              <div class="sub-comp-desc">Speech features act as Query; text features as Key/Value. This allows speech to probe and activate affective-relevant semantic content from the text modality.</div>
+            </div>
+            <div class="sub-comp">
+              <div class="sub-comp-name">Dual-Path KL Distillation</div>
+              <div class="sub-comp-desc">Preserves the LLM's original text-only generation capabilities while adapting it to multimodal affective input, preventing catastrophic forgetting.</div>
+            </div>
+          </div>
+          <div class="stage-tags">
+            <span class="tag">Cross-Modal Fusion</span>
+            <span class="tag">KL Distillation</span>
+            <span class="tag">Qwen3-8B / LLaMA-3.1-8B</span>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <!-- Stage 3 -->
+        <div class="stage-box">
+          <div class="stage-index">STAGE 03</div>
+          <div class="stage-title">Empathetic Speech Synthesis</div>
+          <div class="stage-body">
+            The generated text response is rendered as emotionally expressive speech, conditioned on the inferred affective state of the dialogue.
+          </div>
+          <div class="sub-components">
+            <div class="sub-comp">
+              <div class="sub-comp-name">Energy-Based Strategy Selection</div>
+              <div class="sub-comp-desc">Extracts arousal dynamics from the energy trajectory of dialogue history to select an appropriate empathetic speaking strategy.</div>
+            </div>
+            <div class="sub-comp">
+              <div class="sub-comp-name">Style Vector Fusion (StyleTTS2)</div>
+              <div class="sub-comp-desc">A fused style vector conditions StyleTTS2 synthesis, producing speech whose prosody and tone match the emotional intent of the response.</div>
+            </div>
+          </div>
+          <div class="stage-tags">
+            <span class="tag">StyleTTS2</span>
+            <span class="tag">Energy Trajectory</span>
+            <span class="tag">Style Fusion</span>
+          </div>
+        </div>
+
+      </div><!-- /flow -->
+
+      <div class="io-row">
+        <span>INPUT: Multi-Turn Speech Dialogue</span>
+        <span>OUTPUT: Empathetic Speech Reply</span>
+      </div>
+
+    </div><!-- /arch-wrap -->
+  </section>
+</div>
+
+<!-- BIBTEX -->
+<div class="container" id="bibtex">
+  <section class="reveal">
+    <div class="section-label">Citation</div>
+    <h2>BibTeX</h2>
+    <p>If you find this work useful, please cite:</p>
+    <div class="bibtex-box">
+      <div class="bibtex-header">
+        <span class="bibtex-label">BIBTEX</span>
+        <button class="copy-btn" onclick="copyBib(this)">Copy</button>
+      </div>
+      <pre id="bib-content"><span class="kw">@article</span>{gao2025es4r,
+  <span class="key">title</span>   = {ES4R: Speech Encoding Based on Prepositive Affective
+           Modeling for Empathetic Response Generation},
+  <span class="key">author</span>  = {Gao, Zhuoyue and Wang, Xiaohui and Yang, Xiaocui
+           and Zhang, Wen and Wang, Daling and Feng, Shi
+           and Zhang, Yifei},
+  <span class="key">year</span>    = {<span class="val">2025</span>},
+  <span class="key">url</span>     = {<span class="val">https://github.com/Bean0901/ES4R</span>}
+}</pre>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-text">
+      School of Computer Science and Engineering, Northeastern University<br/>
+      Built with the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+    </div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  function copyBib(btn) {
+    navigator.clipboard.writeText(document.getElementById('bib-content').innerText).then(() => {
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
+tion of your research -->
   <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
   <!-- TODO: Add 5-10 relevant keywords for your research area -->
   <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
