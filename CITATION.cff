@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite the ES4R paper."
-title: "ES4R / CAES"
+title: "ES4R"
 type: software
 license: Apache-2.0
 authors:

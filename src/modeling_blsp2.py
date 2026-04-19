@@ -32,7 +32,7 @@ lm_related_losses = text_llm_related_losses | speech_llm_related_losses
 
 class Blsp2Model(PreTrainedModel):
     config_class = Blsp2Config
-    base_model_prefix = "caes"
+    base_model_prefix = "es4r"
 
     def __init__(self, config: Blsp2Config):
         super().__init__(config)

@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for contributing to `ES4R / CAES`.
+Thanks for contributing to `ES4R`.
 
 ## Scope
 
@@ -51,10 +51,10 @@ If full training is not feasible, say so explicitly in the PR.
 
 Please update the relevant files when needed:
 
-- [README.md](/Users/z786/Workspace/caes_original/README.md)
-- [docs/PROJECT_OVERVIEW.md](/Users/z786/Workspace/caes_original/docs/PROJECT_OVERVIEW.md)
-- [docs/KEY_MODULES.md](/Users/z786/Workspace/caes_original/docs/KEY_MODULES.md)
-- [docs/DATA_FORMAT.md](/Users/z786/Workspace/caes_original/docs/DATA_FORMAT.md)
+- [README.md](README.md)
+- [docs/PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md)
+- [docs/KEY_MODULES.md](docs/KEY_MODULES.md)
+- [docs/DATA_FORMAT.md](docs/DATA_FORMAT.md)
 
 ## Pull Request Checklist
 

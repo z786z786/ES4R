@@ -64,8 +64,8 @@
 
 下列文件默认依赖该 schema：
 
-- [src/instruction_dataset.py](/Users/z786/Workspace/caes_original/src/instruction_dataset.py)
-- [generate.py](/Users/z786/Workspace/caes_original/generate.py)
+- [src/instruction_dataset.py](../src/instruction_dataset.py)
+- [generate.py](../generate.py)
 
 ## 4. 角色约定
 
@@ -101,7 +101,7 @@
 - `suffix_audio_path`
 - `emotion_label`
 
-这些字段不要求你手写；它们由 [src/instruction_dataset.py](/Users/z786/Workspace/caes_original/src/instruction_dataset.py) 自动生成。
+这些字段不要求你手写；它们由 [src/instruction_dataset.py](../src/instruction_dataset.py) 自动生成。
 
 ## 8. 最小建议
 

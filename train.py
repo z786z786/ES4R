@@ -162,51 +162,6 @@ class DataTrainingArguments:
         default="first_exhausted", metadata={"help": "choose from 'first_exhausted' (default) and 'all_exhausted'"}
     )
 
-# #--------------------debug---------------------------------#
-# os.environ["CUDA_VISIBLE_DEVICES"] = "5"
-# os.environ["PATH"] = "/usr/local/cuda/bin:" + os.environ["PATH"]
-# os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:128"
-
-
-# DATA_ROOT = "/datas/gaozhuoyue/Dataset/processed_emotion_data-exmaple"
-# SAVE_ROOT = "/datas/gaozhuoyue/code/caes/debug_output1"
-
-# model_args = ModelArguments(
-#     blsp_model="",
-#     qwen_model="/datas/gaozhuoyue/code/caes/pretrained_models/Qwen-7B-Chat",
-#     whisper_model="/datas/gaozhuoyue/code/caes/pretrained_models/whisper-large-v2",
-#     unfreeze_adapter=True,
-    
-#     loss_names="response_kl",
-# )
-
-# data_args = DataTrainingArguments(
-#     dataset_save_dir=DATA_ROOT,
-# )
-
-# training_args = TrainingArguments(
-#     output_dir=SAVE_ROOT,
-#     remove_unused_columns=False,
-#     seed=1,
-#     do_train=True,
-#     fp16=True,
-#     learning_rate=2e-5,
-#     weight_decay=0.05,
-#     max_grad_norm=1.0,
-#     warmup_steps=200,
-#     per_device_train_batch_size=1,
-#     gradient_accumulation_steps=16,
-#     num_train_epochs=3,
-#     deepspeed="/datas/gaozhuoyue/code/caes/config/dp_config_zero1.json",
-#     disable_tqdm=True,
-#     logging_steps=20,
-#     save_steps=500,
-#     save_total_limit=1,
-#     report_to=[],
-#     # dataloader_shuffle=False,
-# )
-#--------------------debug---------------------------------#
-
 def main():
     # 1. Parse input arguments
     # See all possible arguments in src/transformers/training_args.py
@@ -330,7 +285,7 @@ def main():
     # # torch.cuda.empty_cache()          # 释放未使用显存
     # # torch.cuda.ipc_collect()          # 清理 CUDA IPC handle
     
-    class CAESTrainer(Trainer):
+    class ES4RTrainer(Trainer):
         def get_train_dataloader(self):
             return DataLoader(
                 self.train_dataset,
@@ -339,7 +294,7 @@ def main():
                 collate_fn=self.data_collator,
             )
 
-    trainer = CAESTrainer(
+    trainer = ES4RTrainer(
         model=model,
         args=training_args,
         train_dataset=dataset,

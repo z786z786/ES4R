@@ -238,8 +238,8 @@ def gradio_answer(chatbot, num_beams, temperature):
         yield chatbot
 
 
-title = """<h1 align="center">CAES Local Demo</h1>"""
-description = """<h3>Upload speech or type text to interact with a local CAES checkpoint.</h3>"""
+title = """<h1 align="center">ES4R Local Demo</h1>"""
+description = """<h3>Upload speech or type text to interact with a local ES4R checkpoint.</h3>"""
 
 
 def add_text(chatbot, user_message):

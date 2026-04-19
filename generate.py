@@ -93,7 +93,7 @@ class DataCollator:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Batch inference for CAES checkpoints.")
+    parser = argparse.ArgumentParser(description="Batch inference for ES4R checkpoints.")
     parser.add_argument("--input_file", required=True, help="Input JSON or JSONL file.")
     parser.add_argument("--output_file", required=True, help="Output JSONL file.")
     parser.add_argument("--model_path", default=None, help="Checkpoint path.")

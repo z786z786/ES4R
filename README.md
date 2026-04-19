@@ -1,26 +1,34 @@
-# ES4R / CAES
+# ES4R
 
-Open-source research code for the paper [ES4R: Speech Encoding Based on Prepositive Affective Modeling for Empathetic Response Generation](https://arxiv.org/abs/2601.16225).
+English: Open-source research code for the paper [ES4R: Speech Encoding Based on Prepositive Affective Modeling for Empathetic Response Generation](https://arxiv.org/abs/2601.16225).
 
-This repository focuses on the response-generation side of the project: multi-turn speech dialogue preprocessing, two-stage training, batch inference, and a local demo built on top of `Whisper + Qwen`.
+中文：本仓库开源了论文 [ES4R: Speech Encoding Based on Prepositive Affective Modeling for Empathetic Response Generation](https://arxiv.org/abs/2601.16225) 的研究代码，重点覆盖语音共情回复生成主链路。
 
-## What Is Included
+Project Page | 在线页面: https://z786z786.github.io/ES4R/
 
-- Offline preprocessing for multi-turn speech dialogue manifests
-- Qwen-based text label generation for intermediate data construction
-- Two-stage training scripts
-- Batch inference and automatic response evaluation
-- Gradio local demo for speech-based empathetic dialogue
+## Overview | 项目概览
 
-## Release Scope
+English:
 
-This is a research code release, not a production SDK.
+- multi-turn speech dialogue preprocessing
+- Qwen-based intermediate text label generation
+- dual-path training
+- batch inference
+- local Gradio demo
 
-- The repository keeps the main training and inference path aligned with the paper.
-- It does not bundle datasets, pretrained checkpoints, or large experiment artifacts.
-- The codebase still reflects research iteration in a few core modules, but unnecessary private files and obvious debug noise have been removed for public release.
+中文：
 
-## Repository Layout
+- 多轮语音对话预处理
+- 基于 Qwen 的中间文本标签生成
+- 双路径训练
+- 批量推理
+- 本地 Gradio 演示
+
+This is a research-code release, not a production SDK.
+
+这是研究型代码仓库，不是生产级 SDK。
+
+## Repository Layout | 仓库结构
 
 ```text
 .
@@ -38,16 +46,16 @@ This is a research code release, not a production SDK.
 └── src/
 ```
 
-Key documentation:
+Key documents:
 
-- [Project Overview](/Users/z786/Workspace/caes_original/docs/PROJECT_OVERVIEW.md)
-- [Architecture Deep Dive](/Users/z786/Workspace/caes_original/docs/KEY_MODULES.md)
-- [Data Format](/Users/z786/Workspace/caes_original/docs/DATA_FORMAT.md)
-- [Implementation Reference](/Users/z786/Workspace/caes_original/docs/implementation_reference/README.md)
-- [Contributing Guide](/Users/z786/Workspace/caes_original/CONTRIBUTING.md)
-- [Release Checklist](/Users/z786/Workspace/caes_original/RELEASE_CHECKLIST.md)
+- [Project Overview](docs/PROJECT_OVERVIEW.md)
+- [Architecture Deep Dive](docs/KEY_MODULES.md)
+- [Data Format](docs/DATA_FORMAT.md)
+- [Implementation Reference](docs/implementation_reference/README.md)
+- [Contributing Guide](CONTRIBUTING.md)
+- [Release Checklist](RELEASE_CHECKLIST.md)
 
-## Environment Setup
+## Environment Setup | 环境准备
 
 ```bash
 python3 -m venv .venv
@@ -55,20 +63,19 @@ source .venv/bin/activate
 python3 -m pip install -r requirements.txt
 ```
 
-## Expected Data Format
+## Data Format | 数据格式
 
-The training and inference pipeline expects each sample to contain:
+English: The training and inference pipeline expects each sample to contain `dialogue_history`, `response`, per-turn `audio_path`, and optional `speaker_emotion`.
 
-- `dialogue_history`: a list of multi-turn utterances
-- `response`: the target response object
-- `audio_path`: for every speech turn used by the model
-- `speaker_emotion`: optional emotion label used by the empathy-oriented pipeline
+中文：训练与推理默认要求样本包含 `dialogue_history`、`response`、逐轮 `audio_path`，以及可选的 `speaker_emotion`。
 
-See [docs/DATA_FORMAT.md](/Users/z786/Workspace/caes_original/docs/DATA_FORMAT.md) for the full schema and JSON examples.
+See [docs/DATA_FORMAT.md](docs/DATA_FORMAT.md) for the full schema and examples.
 
-## Workflow
+完整 schema 和示例见 [docs/DATA_FORMAT.md](docs/DATA_FORMAT.md)。
 
-### 1. Generate Intermediate Text Labels
+## Workflow | 使用流程
+
+### 1. Intermediate Label Generation | 中间标签生成
 
 ```bash
 python3 emotion_text_generation.py generate \
@@ -80,7 +87,7 @@ python3 emotion_text_generation.py generate \
   --use_emotion True
 ```
 
-### 2. Offline Preprocess the Manifest
+### 2. Offline Preprocessing | 离线预处理
 
 ```bash
 python3 src/instruction_dataset.py offline \
@@ -93,32 +100,32 @@ python3 src/instruction_dataset.py offline \
   --use_emotion True
 ```
 
-### 3. Stage-1 Training
+### 3. Dual-Path Training | 双路径训练
 
 ```bash
-bash scripts/train_stage1.sh
+bash scripts/train_dual_path.sh
 ```
 
 Required environment variables:
 
-- `QWEN_PATH`
-- `WHISPER_PATH`
 - `DATA_ROOT`
 - `SAVE_ROOT`
+- `BLSP_MODEL`, or both `QWEN_PATH` and `WHISPER_PATH`
 
-### 4. Stage-2 Training
+Optional environment variables:
 
-```bash
-bash scripts/train_stage2.sh
-```
+- `DEEPSPEED_CONFIG`
+- `LOSS_NAMES`
+- `LEARNING_RATE`
+- `NUM_TRAIN_EPOCHS`
+- `PER_DEVICE_TRAIN_BATCH_SIZE`
+- `GRADIENT_ACCUMULATION_STEPS`
 
-Required environment variables:
+English: The public training entry now uses a single dual-path script that jointly optimizes the text path and speech path, instead of exposing a staged shell workflow.
 
-- `BLSP_MODEL`
-- `DATA_ROOT`
-- `SAVE_ROOT`
+中文：公开仓库现在只保留一份双路径训练脚本，用于联合优化文本路径和语音路径，不再拆分公开训练入口。
 
-### 5. Batch Inference
+### 4. Batch Inference | 批量推理
 
 ```bash
 python3 generate.py \
@@ -130,24 +137,26 @@ python3 generate.py \
   --use_emotion
 ```
 
-### 6. Local Demo
+### 5. Local Demo | 本地演示
 
 ```bash
 python3 chat_demo.py --blsp_model /path/to/checkpoint --use_emotion
 ```
 
-## Main Entry Points
+## Main Entry Points | 主要入口
 
-- `train.py`: main training entry
+- `train.py`: unified training entry
 - `generate.py`: batch inference
 - `chat_demo.py`: Gradio demo
 - `emotion_text_generation.py`: intermediate label generation
 - `response_metrics.py`: automatic evaluation
 - `src/`: model and dataset implementation
 
-## Citation
+## Citation | 引用
 
 If this repository or the associated paper is useful in your work, please cite:
+
+如果本仓库或对应论文对你的工作有帮助，请引用：
 
 ```bibtex
 @article{gao2026es4r,
@@ -159,20 +168,28 @@ If this repository or the associated paper is useful in your work, please cite:
 }
 ```
 
-Machine-readable citation metadata is provided in [CITATION.cff](/Users/z786/Workspace/caes_original/CITATION.cff).
+Machine-readable citation metadata is provided in [CITATION.cff](CITATION.cff).
 
-## Contributing
+## Notes | 说明
 
-External improvements are welcome, especially around reproducibility, documentation, and bug fixes in the public training and inference path.
+English:
 
-See [CONTRIBUTING.md](/Users/z786/Workspace/caes_original/CONTRIBUTING.md) for contribution expectations.
+- the current release focuses on the response-generation path
+- datasets and pretrained checkpoints are not bundled
+- some paper-level components may depend on external assets not included here
 
-## Notes
+中文：
 
-- The current release assumes the input manifest already contains aligned dialogue turns and audio paths.
-- The repository is optimized for code clarity and reproducibility of the response-generation pipeline, not for generic plug-and-play deployment.
-- Some paper-level components may depend on data preparation or downstream synthesis assets that are not included in this repository.
+- 当前开源版本重点覆盖回复生成主链路
+- 数据集和预训练 checkpoint 不包含在仓库内
+- 论文中的部分扩展组件可能仍依赖仓库外资源
 
-## License
+## Contributing | 贡献
 
-See [LICENSE](/Users/z786/Workspace/caes_original/LICENSE).
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations.
+
+贡献说明见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+## License | 许可证
+
+See [LICENSE](LICENSE).

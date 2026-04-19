@@ -12,7 +12,7 @@
 
 - 多轮语音对话样本组织
 - 情感上下文驱动的语音编码与融合
-- 两阶段训练
+- 双路径训练
 - 批量推理与本地 Demo
 
 这不是一个通用语音 SDK，也不是完整产品化系统。开源版本优先保留论文复现所需的主流程与关键实现。
@@ -105,12 +105,12 @@ Qwen 模型适配与生成逻辑。
 
 如果你第一次接手这个仓库，建议按下面顺序看：
 
-1. [README.md](/Users/z786/Workspace/caes_original/README.md)
-2. [docs/DATA_FORMAT.md](/Users/z786/Workspace/caes_original/docs/DATA_FORMAT.md)
-3. [train.py](/Users/z786/Workspace/caes_original/train.py)
-4. [src/instruction_dataset.py](/Users/z786/Workspace/caes_original/src/instruction_dataset.py)
-5. [src/modeling_blsp2.py](/Users/z786/Workspace/caes_original/src/modeling_blsp2.py)
-6. [docs/KEY_MODULES.md](/Users/z786/Workspace/caes_original/docs/KEY_MODULES.md)
+1. [README.md](../README.md)
+2. [docs/DATA_FORMAT.md](DATA_FORMAT.md)
+3. [train.py](../train.py)
+4. [src/instruction_dataset.py](../src/instruction_dataset.py)
+5. [src/modeling_blsp2.py](../src/modeling_blsp2.py)
+6. [docs/KEY_MODULES.md](KEY_MODULES.md)
 
 ## 6. 主流程概览
 
@@ -122,8 +122,11 @@ Qwen 模型适配与生成逻辑。
 
 ### 训练
 
-1. Stage 1 侧重语义对齐和桥接模块学习。
-2. Stage 2 在共情对话场景上继续训练，强化情绪一致性与回复质量。
+公开仓库当前只保留单一训练入口：
+
+1. 使用一份 dual-path 训练脚本同时优化 text path 和 speech path。
+2. 通过 `response_ce`、`response_kl` 等损失联合约束生成质量和跨路径对齐。
+3. 可从已有 `BLSP_MODEL` 继续训练，也可从 `QWEN_PATH + WHISPER_PATH` 初始化。
 
 ### 推理
 

@@ -7,14 +7,14 @@ Use this checklist before making the repository public or cutting a tagged relea
 - [ ] Remove private notes, interview materials, local backups, and editor settings.
 - [ ] Remove generated outputs, caches, logs, and temporary artifacts.
 - [ ] Confirm `.gitignore` covers local-only files.
-- [ ] Add the final public repository URL to [CITATION.cff](/Users/z786/Workspace/caes_original/CITATION.cff) after publishing.
+- [ ] Add the final public repository URL to [CITATION.cff](CITATION.cff) after publishing.
 - [ ] Remove stray `.DS_Store` files.
 
 ## Documentation
 
 - [ ] README matches the actual repository scope.
-- [ ] Data schema is documented in [docs/DATA_FORMAT.md](/Users/z786/Workspace/caes_original/docs/DATA_FORMAT.md).
-- [ ] Architecture is documented in [docs/KEY_MODULES.md](/Users/z786/Workspace/caes_original/docs/KEY_MODULES.md).
+- [ ] Data schema is documented in [docs/DATA_FORMAT.md](docs/DATA_FORMAT.md).
+- [ ] Architecture is documented in [docs/KEY_MODULES.md](docs/KEY_MODULES.md).
 - [ ] Training, inference, and demo commands are runnable in principle.
 - [ ] Licensing and citation information are present.
 
