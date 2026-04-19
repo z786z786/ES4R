@@ -1,0 +1,65 @@
+name: Bug report
+description: Report a reproducible bug in the released research code.
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please provide enough detail to reproduce the issue. Research-code bugs are much easier to fix when the input data shape, command, and environment are clear.
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      placeholder: Briefly describe the bug.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include OS, Python version, CUDA version, GPU model, and key dependency versions if relevant.
+      placeholder: |
+        OS:
+        Python:
+        CUDA:
+        GPU:
+        transformers:
+        torch:
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Reproduction command
+      description: Paste the exact command or script entry you ran.
+      render: bash
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or traceback
+      render: text
+    validations:
+      required: false
+  - type: textarea
+    id: data_notes
+    attributes:
+      label: Data format notes
+      description: Mention which manifest schema or sample file was used.
+    validations:
+      required: false

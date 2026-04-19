@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the ES4R paper."
+title: "ES4R / CAES"
+type: software
+license: Apache-2.0
+authors:
+  - family-names: Gao
+    given-names: Zhuoyue
+  - family-names: Wang
+    given-names: Xiaohui
+  - family-names: Yang
+    given-names: Xiaocui
+  - family-names: Zhang
+    given-names: Wen
+  - family-names: Wang
+    given-names: Daling
+  - family-names: Feng
+    given-names: Shi
+  - family-names: Zhang
+    given-names: Yifei
+preferred-citation:
+  type: article
+  title: "ES4R: Speech Encoding Based on Prepositive Affective Modeling for Empathetic Response Generation"
+  authors:
+    - family-names: Gao
+      given-names: Zhuoyue
+    - family-names: Wang
+      given-names: Xiaohui
+    - family-names: Yang
+      given-names: Xiaocui
+    - family-names: Zhang
+      given-names: Wen
+    - family-names: Wang
+      given-names: Daling
+    - family-names: Feng
+      given-names: Shi
+    - family-names: Zhang
+      given-names: Yifei
+  year: 2026
+  publisher: arXiv
+  doi: 10.48550/arXiv.2601.16225
+  url: "https://arxiv.org/abs/2601.16225"
+  identifiers:
+    - type: other
+      value: "arXiv:2601.16225"

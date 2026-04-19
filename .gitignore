@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.venv/
+.vscode/
+.trash/
+output/
+
+logs/
+data/*_response.json
+
+*.log
+*.out
+*.tmp

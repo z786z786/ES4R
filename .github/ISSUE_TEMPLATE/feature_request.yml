@@ -1,0 +1,33 @@
+name: Feature request
+description: Propose a scoped improvement for the public research repository.
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What limitation or workflow gap are you trying to address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest useful change.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Expected impact
+      description: Clarify whether this affects reproducibility, usability, or model behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
