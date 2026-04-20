@@ -1,34 +1,34 @@
 # Implementation Reference
 
-这个目录把项目中最关键的实现按主题整理成了可单独阅读的参考文件，方便代码走读、论文复现和项目维护。
+This directory reorganizes the most important implementation ideas into topic-oriented reference files that are easier to read in isolation during code walkthroughs, paper reproduction, and maintenance.
 
-说明：
+## Notes
 
-- 这里的文件是“实现摘录 + 最小化重写 + 原文件定位”，目的是便于理解。
-- 原始训练逻辑仍以 `src/` 和 `train.py` 为准。
-- 如果你要改项目功能，请优先改原始代码，不要只改这个目录里的参考文件。
+- The files here are reference-oriented excerpts and minimal rewrites intended to improve readability.
+- The authoritative training and inference logic still lives in `src/` and `train.py`.
+- If you need to change repository behavior, update the original source files first rather than only editing this reference directory.
 
-## 文件索引
+## File Index
 
 - [audio_frontend.py](audio_frontend.py)
   - `get_waveform`
   - `convert_waveform`
-  - `WhisperFeatureExtractor` 使用方式
+  - how `WhisperFeatureExtractor` is used
 
 - [attention_and_softmax.py](attention_and_softmax.py)
-  - scaled dot-product attention 数学实现
-  - softmax 最小实现
-  - 项目中双层 self-attention / cross-attention 的对应关系
+  - scaled dot-product attention
+  - a minimal softmax implementation
+  - how these pieces relate to dual-level self-attention and cross-attention in the repository
 
 - [adapter_reference.py](adapter_reference.py)
   - `Subsampler`
   - `CFormer`
-  - speech-to-LLM 桥接逻辑
+  - speech-to-LLM bridging logic
 
 - [fusion_pipeline.py](fusion_pipeline.py)
-  - 双层 self-attention
+  - dual-level self-attention
   - `get_speech_features`
-  - cross-attention 融合
+  - cross-modal fusion
 
 - [losses_reference.py](losses_reference.py)
   - `response_ce`
@@ -37,14 +37,14 @@
   - `input_er`
 
 - [lora_reference.py](lora_reference.py)
-  - LoRA 接入点
+  - LoRA integration points
   - `lora_scope=audio`
-  - target modules 说明
+  - target module notes
 
-## 原始代码定位
+## Source Mapping
 
-- 主模型：[src/modeling_blsp2.py](../../src/modeling_blsp2.py)
-- Adapter：[src/modeling_adapter.py](../../src/modeling_adapter.py)
-- 音频处理：[src/instruction_dataset.py](../../src/instruction_dataset.py)
-- LoRA：[src/plora.py](../../src/plora.py)
-- Qwen 注意力中的 softmax：[src/modeling_qwen.py](../../src/modeling_qwen.py)
+- Main model: [src/modeling_blsp2.py](../../src/modeling_blsp2.py)
+- Adapter: [src/modeling_adapter.py](../../src/modeling_adapter.py)
+- Audio processing: [src/instruction_dataset.py](../../src/instruction_dataset.py)
+- LoRA: [src/plora.py](../../src/plora.py)
+- Qwen attention softmax: [src/modeling_qwen.py](../../src/modeling_qwen.py)

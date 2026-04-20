@@ -1,109 +1,105 @@
 # Project Overview
 
-这份文档面向开源读者，目标是先回答三个问题：
+This document is the fastest way to understand what the public ES4R repository includes, how the main pipeline is organized, and where the boundaries of the open-source release currently sit.
 
-1. 这个仓库到底实现了论文中的哪一部分。
-2. 代码主流程从哪里进、怎么跑、输出什么。
-3. 仓库整理后应该如何理解目录边界。
+## 1. Repository Scope
 
-## 1. 仓库定位
+This repository focuses on the core response-generation path of the paper [ES4R](https://arxiv.org/abs/2601.16225), with emphasis on:
 
-当前仓库对应论文 [ES4R](https://arxiv.org/abs/2601.16225) 的语音共情回复生成主链路，重点在：
+- multi-turn speech dialogue sample organization
+- affect-aware speech encoding and fusion
+- dual-path training
+- batch inference and a local demo
 
-- 多轮语音对话样本组织
-- 情感上下文驱动的语音编码与融合
-- 双路径训练
-- 批量推理与本地 Demo
+This is research code, not a general speech SDK and not a production-ready end-to-end product. The public release is intentionally scoped around the main experimental path needed for paper understanding and partial reproduction.
 
-这不是一个通用语音 SDK，也不是完整产品化系统。开源版本优先保留论文复现所需的主流程与关键实现。
-
-## 2. 顶层目录
+## 2. Top-Level Layout
 
 ```text
 .
-├── train.py                     # 训练入口
-├── generate.py                  # 批量推理入口
-├── chat_demo.py                 # Gradio 本地演示
-├── emotion_text_generation.py   # 中间文本标签生成
-├── response_metrics.py          # 自动评测
-├── config/                      # DeepSpeed / adapter 配置
-├── data_process/                # 文本清洗与规范化
-├── docs/                        # 开源说明与深挖文档
-├── examples/                    # 示例 manifest
-├── figures/                     # 论文或说明图
-├── scripts/                     # 训练、推理、演示脚本
-└── src/                         # 核心模型与数据管线
+├── train.py                     # training entry point
+├── generate.py                  # batch inference entry point
+├── chat_demo.py                 # local Gradio demo
+├── emotion_text_generation.py   # intermediate text label generation
+├── response_metrics.py          # automatic evaluation
+├── config/                      # DeepSpeed and adapter configs
+├── data_process/                # text cleaning and normalization
+├── docs/                        # public documentation
+├── examples/                    # example manifests
+├── figures/                     # paper figures and supporting visuals
+├── scripts/                     # training and utility scripts
+└── src/                         # core models and data pipeline
 ```
 
-本次整理中，已经把以下内容移出开源主路径：
+During repository cleanup, the public path was stripped down to remove:
 
-- 私有面试材料
-- 历史清理备份与缓存
-- 明显本地化的临时文件
-- 未接入主流程的硬编码数据转换脚本
+- private interview or non-project materials
+- historical cleanup backups and caches
+- obviously local temporary files
+- hard-coded conversion scripts that were not part of the main workflow
 
-## 3. 运行入口
+## 3. Entry Points
 
 ### `train.py`
 
-训练主入口，负责：
+The primary training entry point. It is responsible for:
 
-- 解析模型、数据、训练参数
-- 加载 `Blsp2Model`
-- 调用 `src/instruction_dataset.py` 构建或读取离线数据集
-- 使用 Hugging Face `Trainer` 执行训练
+- parsing model, data, and training arguments
+- loading `Blsp2Model`
+- building or loading the offline dataset through `src/instruction_dataset.py`
+- launching training through the Hugging Face `Trainer`
 
 ### `generate.py`
 
-离线推理入口，负责：
+The offline inference entry point. It is responsible for:
 
-- 读取 JSON / JSONL 格式测试集
-- 为每个 turn 组装文本 token 和音频特征
-- 调用 `model.generate`
-- 输出预测结果文件
+- reading JSON or JSONL test manifests
+- assembling text tokens and audio features for each turn
+- calling `model.generate`
+- writing prediction files
 
 ### `chat_demo.py`
 
-Gradio 本地 Demo，适合做定性展示或答辩现场演示。
+A local Gradio demo intended for qualitative inspection and live demonstrations.
 
 ### `emotion_text_generation.py`
 
-使用 Qwen 为训练数据生成中间文本标签，通常服务于阶段化数据构建。
+Generates intermediate text labels with Qwen for downstream data preparation.
 
 ### `response_metrics.py`
 
-对推理结果做自动评测，输出 BLEU、ROUGE、METEOR、BERTScore、Distinct 等指标。
+Runs automatic evaluation and reports metrics such as BLEU, ROUGE, METEOR, BERTScore, and Distinct.
 
-## 4. 关键源文件
+## 4. Core Source Files
 
 ### `src/modeling_blsp2.py`
 
-项目主模型，负责把 Whisper、Adapter、双层注意力、跨模态融合和 Qwen 串成一条完整训练链路。
+The main model implementation. It connects Whisper, the adapter stack, dual-level attention, cross-modal fusion, and Qwen into the core training path.
 
 ### `src/instruction_dataset.py`
 
-数据组织与 batch collator，负责：
+The dataset builder and batch collator. It handles:
 
-- 读取原始 manifest
-- 组装多轮对话训练样本
-- 加载音频并提取 Whisper 特征
-- 保存离线处理后的 Hugging Face dataset
+- reading raw manifests
+- assembling multi-turn dialogue samples
+- loading audio and extracting Whisper features
+- saving offline Hugging Face datasets
 
 ### `src/modeling_adapter.py`
 
-音频时序压缩与桥接模块，核心类是 `Subsampler` 和 `CFormer`。
+Implements temporal compression and speech-to-LLM bridging modules, mainly `Subsampler` and `CFormer`.
 
 ### `src/modeling_whisper_encoder.py`
 
-对 Whisper encoder 做轻量封装，支持直接从 Whisper checkpoint 中抽取编码器权重。
+A lightweight wrapper around the Whisper encoder that supports direct loading from Whisper checkpoints.
 
 ### `src/modeling_qwen.py`
 
-Qwen 模型适配与生成逻辑。
+Qwen model adaptation and generation logic.
 
-## 5. 推荐阅读顺序
+## 5. Recommended Reading Order
 
-如果你第一次接手这个仓库，建议按下面顺序看：
+For a first pass through the repository, read in this order:
 
 1. [README.md](../README.md)
 2. [docs/DATA_FORMAT.md](DATA_FORMAT.md)
@@ -112,38 +108,42 @@ Qwen 模型适配与生成逻辑。
 5. [src/modeling_blsp2.py](../src/modeling_blsp2.py)
 6. [docs/KEY_MODULES.md](KEY_MODULES.md)
 
-## 6. 主流程概览
+## 6. Pipeline Summary
 
-### 数据准备
+### Data Preparation
 
-1. 原始 manifest 提供多轮 `dialogue_history`、`response` 和音频路径。
-2. `emotion_text_generation.py` 可生成中间文本标签。
-3. `src/instruction_dataset.py offline` 把样本转换为训练所需的离线数据集。
+1. A raw manifest provides multi-turn `dialogue_history`, `response`, and audio paths.
+2. `emotion_text_generation.py` can generate intermediate text labels.
+3. `src/instruction_dataset.py offline` converts samples into the offline dataset expected by training.
 
-### 训练
+### Training
 
-公开仓库当前只保留单一训练入口：
+The public repository now exposes a single dual-path training flow:
 
-1. 使用一份 dual-path 训练脚本同时优化 text path 和 speech path。
-2. 通过 `response_ce`、`response_kl` 等损失联合约束生成质量和跨路径对齐。
-3. 可从已有 `BLSP_MODEL` 继续训练，也可从 `QWEN_PATH + WHISPER_PATH` 初始化。
+1. one script optimizes the text path and speech path together
+2. losses such as `response_ce` and `response_kl` jointly constrain generation quality and cross-path alignment
+3. training can continue from an existing `BLSP_MODEL`, or initialize from `QWEN_PATH + WHISPER_PATH`
 
-### 推理
+### Inference
 
-1. `generate.py` 读取测试 manifest。
-2. 逐轮提取音频特征并构造历史上下文。
-3. 模型输出共情文本回复。
+1. `generate.py` reads the test manifest
+2. audio features and dialogue context are prepared turn by turn
+3. the model produces empathetic text responses
 
-## 7. 这次开源整理做了什么
+## 7. What Was Cleaned Up
 
-- 重写了 README 和项目文档入口
-- 清理了明显不应公开的私有材料
-- 删掉了主链路中的高噪声调试输出
-- 保留了研究实现，但收敛了仓库边界
+The open-source preparation included:
 
-## 8. 仍然存在的技术债
+- rewriting the repository entry documentation
+- removing clearly non-public materials
+- trimming noisy debug output in the main path
+- tightening the repository boundary around the research implementation
 
-- `src/modeling_blsp2.py` 仍然偏大，后续适合拆模块
-- 数据格式依然依赖具体任务 schema，而不是通用协议
-- 还没有配套的最小化自动化测试
-- 训练脚本仍以 shell 模板为主，配置管理可继续增强
+## 8. Current Technical Debt
+
+The codebase is usable, but several obvious maintenance improvements remain:
+
+- `src/modeling_blsp2.py` is still too large and should be split by responsibility
+- the data format is task-specific rather than formalized as a reusable protocol
+- there is no minimal automated test suite yet
+- training is still driven mostly by shell templates rather than a more explicit config layer
